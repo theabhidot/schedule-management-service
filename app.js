@@ -8,6 +8,7 @@ const uri =
 
 const app = express();
 app.use(express.json());
+mongoose.set('strictQuery', true);
 
 /** Connect to the MongoDB database */
 mongoose.connect(uri, {
@@ -248,7 +249,4 @@ app.delete('/api/doctorpref/delete/:doctor_id', (req, res) => {
     );
 });
 
-/** Start the server */
-app.listen(3000, () => {
-    console.log('Schedule management service started \nListening on port 3000');
-});
+module.exports = app;
