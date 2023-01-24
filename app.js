@@ -136,7 +136,7 @@ app.put('/api/appointments/edit/:booking_id', (req, res) => {
                 console.log(err);
                 res.json({ error: err });
             } else {
-                console.log('Successfully updated patient\n', item);
+                console.log('Successfully updated appointment.', item);
                 res.json(item);
             }
         }
@@ -229,7 +229,6 @@ app.post('/api/doctorpref', async (req, res) => {
         Status,
         Details,
     };
-    f;
 
     try {
         res.json(
@@ -242,7 +241,9 @@ app.post('/api/doctorpref', async (req, res) => {
     }
 });
 
-/** Route to update Doctor preference record. */
+/** This route is redundant as the previous is being used to edit also.
+ *  Route to update Doctor preference record.
+ */
 app.put('/api/doctorpref/edit/:doctor_id', (req, res) => {
     DoctorPreference.findByIdAndUpdate(
         req.params.doctor_id,
@@ -260,9 +261,9 @@ app.put('/api/doctorpref/edit/:doctor_id', (req, res) => {
 });
 
 /** Delete Doctor preference record. */
-app.delete('/api/doctorpref/delete/:doctor_id', (req, res) => {
+app.delete('/api/doctorpref/delete/:pref_id', (req, res) => {
     DoctorPreference.findByIdAndDelete(
-        req.params.doctor_id,
+        req.params.pref_id,
         req.body,
         (err, item) => {
             if (err) {
