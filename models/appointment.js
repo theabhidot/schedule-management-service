@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-// Define the Appointment model
+/* Define the Appointment model to store appointment data */
 const AppointmentSchema = new mongoose.Schema({
     AppointmentTime: {
         type: Date,
@@ -24,7 +24,7 @@ const AppointmentSchema = new mongoose.Schema({
     Details: {
         type: Map,
         default: null,
-    }
+    },
 });
 
 module.exports = mongoose.model('Appointment', AppointmentSchema);

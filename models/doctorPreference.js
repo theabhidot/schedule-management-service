@@ -1,21 +1,6 @@
 const mongoose = require('mongoose');
 
-const TimeSlotSchema = {
-    from: Date,
-    to: Date,
-};
-
-const AvailabilitySchema = {
-    monday: TimeSlotSchema,
-    tuesday: TimeSlotSchema,
-    wednesday: TimeSlotSchema,
-    thursday: TimeSlotSchema,
-    friday: TimeSlotSchema,
-    saturday: TimeSlotSchema,
-    sunday: TimeSlotSchema,
-};
-
-// Define the Doctor preference model
+/* Define the Doctor preference for meeting duration and available slots model */
 const DoctorPreferenceSchema = new mongoose.Schema({
     ClinicId: {
         type: Number,
@@ -23,14 +8,14 @@ const DoctorPreferenceSchema = new mongoose.Schema({
     },
     DoctorId: {
         type: Number,
-        default: null,
+        unique: true,
     },
     MeetingDuration: {
         type: Number,
         default: null,
     },
     Availability: {
-        type: AvailabilitySchema,
+        type: [[Date]],
         default: null,
     },
     Status: {
