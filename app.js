@@ -35,7 +35,7 @@ app.get('/api/appointments', function (req, res) {
     });
 });
 
-/** Route to return all appointments for {patientid} . */
+/** Route to return all appointments for {patientid}. */
 app.get('/api/appointments/patient/:patientid', function (req, res) {
     Appointment.find({ PatientId: req.params.patientid }).exec((err, item) => {
         if (err) {
@@ -64,7 +64,7 @@ app.get('/api/appointments/patient/:patientid/:doctorid', function (req, res) {
     });
 });
 
-/** Route to return all appointments for {doctorid} . */
+/** Route to return all appointments for {doctorid}. */
 app.get('/api/appointments/doctor/:doctorid', function (req, res) {
     Appointment.find({ DoctorId: req.params.doctorid }).exec((err, item) => {
         if (err) {
