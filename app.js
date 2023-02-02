@@ -26,10 +26,10 @@ app.get('/', (req, res) => {
 app.get('/api/appointments', function (req, res) {
     Appointment.find({}).exec((err, item) => {
         if (err) {
-            console.log(err);
+            // console.log(err);
             res.json({ error: err });
         } else {
-            console.log(item);
+            // console.log(item);
             res.send(item);
         }
     });
@@ -39,10 +39,10 @@ app.get('/api/appointments', function (req, res) {
 app.get('/api/appointments/patient/:patientid', function (req, res) {
     Appointment.find({ PatientId: req.params.patientid }).exec((err, item) => {
         if (err) {
-            console.log(err);
+            // console.log(err);
             res.json({ error: err });
         } else {
-            console.log(item);
+            // console.log(item);
             res.send(item);
         }
     });
@@ -55,10 +55,10 @@ app.get('/api/appointments/patient/:patientid/:doctorid', function (req, res) {
         DoctorId: req.params.doctorid,
     }).exec((err, item) => {
         if (err) {
-            console.log(err);
+            // console.log(err);
             res.json({ error: err });
         } else {
-            console.log(item);
+            // console.log(item);
             res.send(item);
         }
     });
@@ -68,10 +68,10 @@ app.get('/api/appointments/patient/:patientid/:doctorid', function (req, res) {
 app.get('/api/appointments/doctor/:doctorid', function (req, res) {
     Appointment.find({ DoctorId: req.params.doctorid }).exec((err, item) => {
         if (err) {
-            console.log(err);
+            // console.log(err);
             res.json({ error: err });
         } else {
-            console.log(item);
+            // console.log(item);
             res.send(item);
         }
     });
@@ -84,10 +84,10 @@ app.get('/api/appointments/doctor/:doctorid/:patientid', function (req, res) {
         DoctorId: req.params.doctorid,
     }).exec((err, item) => {
         if (err) {
-            console.log(err);
+            // console.log(err);
             res.json({ error: err });
         } else {
-            console.log(item);
+            // console.log(item);
             res.send(item);
         }
     });
@@ -117,10 +117,10 @@ app.post('/api/bookappointment', (req, res) => {
 
     Appointment.create(obj, (err, item) => {
         if (err) {
-            console.log(err);
+            // console.log(err);
             res.json({ error: err });
         } else {
-            console.log(item);
+            // console.log(item);
             res.send(item);
         }
     });
@@ -133,10 +133,10 @@ app.put('/api/appointments/edit/:booking_id', (req, res) => {
         req.body,
         (err, item) => {
             if (err) {
-                console.log(err);
+                // console.log(err);
                 res.json({ error: err });
             } else {
-                console.log('Successfully updated appointment.', item);
+                // console.log('Successfully updated appointment.', item);
                 res.json(item);
             }
         }
@@ -147,11 +147,11 @@ app.put('/api/appointments/edit/:booking_id', (req, res) => {
 app.delete('/api/appointments/delete/:id', (req, res) => {
     Appointment.findByIdAndDelete(req.params.id, (err, item) => {
         if (err) {
-            console.log(err);
+            // console.log(err);
             res.json({ error: err });
         } else {
             let str = 'Successfully deleted appointment\n';
-            console.log(str, item);
+            // console.log(str, item);
             res.json({ message: str });
         }
     });
@@ -163,10 +163,10 @@ app.delete('/api/appointments/delete/:id', (req, res) => {
 app.get('/api/doctorpref/', (req, res) => {
     DoctorPreference.find({}).exec((err, item) => {
         if (err) {
-            console.log(err);
+            // console.log(err);
             res.json({ error: err });
         } else {
-            console.log(item);
+            // console.log(item);
             res.send(item);
         }
     });
@@ -177,10 +177,10 @@ app.get('/api/doctorpref/doctor/:DoctorId', (req, res) => {
     DoctorPreference.findOne({ DoctorId: req.params.DoctorId }).exec(
         (err, item) => {
             if (err) {
-                console.log(err);
+                // console.log(err);
                 res.json({ error: err });
             } else {
-                console.log(item);
+                // console.log(item);
                 res.json(item);
             }
         }
@@ -192,10 +192,10 @@ app.get('/api/doctorpref/clinic/:ClinicId', (req, res) => {
     DoctorPreference.find({ ClinicId: req.params.ClinicId }).exec(
         (err, item) => {
             if (err) {
-                console.log(err);
+                // console.log(err);
                 res.json({ error: err });
             } else {
-                console.log(item);
+                // console.log(item);
                 res.send(item);
             }
         }
@@ -250,10 +250,10 @@ app.put('/api/doctorpref/edit/:doctor_id', (req, res) => {
         req.body,
         (err, item) => {
             if (err) {
-                console.log(err);
+                // console.log(err);
                 res.json({ error: err });
             } else {
-                console.log('Successfully updated doctor preferences\n', item);
+                // console.log('Successfully updated doctor preferences\n', item);
                 res.json(item);
             }
         }
@@ -267,10 +267,10 @@ app.delete('/api/doctorpref/delete/:pref_id', (req, res) => {
         req.body,
         (err, item) => {
             if (err) {
-                console.log(err);
+                // console.log(err);
                 res.json({ error: err });
             } else {
-                console.log('Successfully deeted doctor preferences\n', item);
+                // console.log('Successfully deeted doctor preferences\n', item);
                 res.json(item);
             }
         }
@@ -316,7 +316,7 @@ app.get('/api/doctorslot/:doctor_id', async (req, res) => {
     else {
         for (let i = 0; i < 7; i++) slots.push([]);
     }
-    console.log(slots);
+    // console.log(slots);
     res.send(slots);
 });
 
